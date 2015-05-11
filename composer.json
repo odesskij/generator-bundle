@@ -22,7 +22,7 @@
   },
   "autoload": {
     "psr-0": {
-      "Odesskij\\Bundle\\GeneratorBundle": "src/"
+      "Odesskij\\Bundle\\GeneratorBundle\\": "src/"
     }
   },
   "minimum-stability": "stable"
