@@ -1,0 +1,50 @@
+{# @formatter:off #}
+<?php
+namespace {{ namespace }}\DependencyInjection;
+
+{% block use_statements %}
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Config\Definition\Processor;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+{% endblock use_statements %}
+
+/**
+ * Extension for {{ bundle }}.
+{% if php_doc.author is defined %}
+ *
+ * @author {{ php_doc.author }}
+ {% endif %}
+ */
+{% block class_definition %}
+class {{ bundle_basename }}Extension extends Extension
+{% endblock class_definition %}
+{
+{% block class_body %}
+    /**
+     * {@inheritdoc}
+     */
+    public function load(array $configs, ContainerBuilder $container)
+    {
+        $configDir = __DIR__ . '/../Resources/config';
+
+        $processor = new Processor();
+        $config = $processor->processConfiguration(
+            new Configuration($this->getAlias()),
+            $configs
+        );
+        $container->setParameter(
+            $this->getAlias(),
+            $config
+        );
+        $loader = new YamlFileLoader(
+            $container,
+            new FileLocator($configDir)
+        );
+        $loader->load('services.yml');
+    }
+{% endblock class_body %}
+}
+{# @formatter:on #}

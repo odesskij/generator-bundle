@@ -1,0 +1,31 @@
+{# @formatter:off #}
+<?php
+namespace {{ namespace }};
+
+{% block use_statements %}
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+{% endblock use_statements %}
+
+/**
+ * {{ bundle }}.
+{% if php_doc.author is defined %}
+ *
+ * @author {{ php_doc.author }}
+ {% endif %}
+ */
+{% block class_definition %}
+class {{ bundle }} extends Bundle
+{% endblock class_definition %}
+{
+{% block class_body %}
+    /**
+     * {@inheritdoc}
+     */
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+    }
+{% endblock class_body %}
+}
+{# @formatter:on #}

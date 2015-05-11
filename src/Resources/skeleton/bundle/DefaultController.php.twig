@@ -1,0 +1,31 @@
+{# @formatter:off #}
+<?php
+namespace {{ namespace }}\Controller;
+
+{% block use_statements %}
+use FOS\RestBundle\Controller\Annotations as Rest;
+{% endblock use_statements %}
+
+/**
+ * DefaultController.
+{% if php_doc.author is defined %}
+ *
+ * @author {{ php_doc.author }}
+ {% endif %}
+ */
+{% block class_definition %}
+class DefaultController
+{% endblock class_definition %}
+{
+{% block class_body %}
+    /**
+     * @Rest\Get("/hello/{name}")
+     * @Rest\View()
+     */
+    public function indexAction($name)
+    {
+        return ['name' => $name];
+    }
+{% endblock class_body %}
+}
+{# @formatter:on #}

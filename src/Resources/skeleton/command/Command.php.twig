@@ -1,0 +1,40 @@
+{# @formatter:off #}
+<?php
+namespace {{ namespace }}\Command;
+
+{% block use_statements %}
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+{% endblock use_statements %}
+
+/**
+ * {{ command }}Command.
+{% if php_doc.author is defined %}
+ *
+ * @author {{ php_doc.author }}
+ {% endif %}
+ */
+{% block class_definition %}
+class {{ command }}Command extends ContainerAwareCommand
+{% endblock class_definition %}
+{
+{% block class_body %}
+    /**
+     * {@inheritdoc}
+     */
+    protected function configure()
+    {
+        $this
+            ->setName('{{ name }}');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function execute(InputInterface $input, OutputInterface $output) {
+
+    }
+{% endblock class_body %}
+}
+{# @formatter:on #}

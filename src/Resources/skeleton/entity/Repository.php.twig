@@ -1,0 +1,24 @@
+{# @formatter:off #}
+<?php
+namespace {{ namespace }}\Entity;
+
+{% block use_statements %}
+use Doctrine\ORM\EntityRepository;
+{% endblock use_statements %}
+
+/**
+ * Repository Entity\{{ entity }}.
+{% if php_doc.author is defined %}
+ *
+ * @author {{ php_doc.author }}
+ {% endif %}
+ */
+{% block class_definition %}
+class {{ entityRepository }} extends EntityRepository {% if entityRepositoryInterface is defined %}implements
+    {{ entityRepositoryInterface }}{% endif %}
+{% endblock class_definition %}
+{
+{% block class_body %}
+{% endblock class_body %}
+}
+{# @formatter:on #}

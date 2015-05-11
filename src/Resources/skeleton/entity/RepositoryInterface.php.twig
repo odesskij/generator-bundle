@@ -1,0 +1,23 @@
+{# @formatter:off #}
+<?php
+namespace {{ namespace }}\Entity;
+
+{% block use_statements %}
+use Doctrine\Common\Persistence\ObjectRepository;
+{% endblock use_statements %}
+
+/**
+ * {{ entity }}RepositoryInterface.
+{% if php_doc.author is defined %}
+ *
+ * @author {{ php_doc.author }}
+ {% endif %}
+ */
+{% block class_definition %}
+interface {{ entity }}RepositoryInterface extends ObjectRepository
+{% endblock class_definition %}
+{
+{% block class_body %}
+{% endblock class_body %}
+}
+{# @formatter:on #}

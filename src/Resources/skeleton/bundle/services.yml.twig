@@ -1,0 +1,13 @@
+{# @formatter:off #}
+parameters:
+{% block parameters %}
+#  {{ extension_alias }}.example.class:
+#    {{ namespace }}\Example
+{% endblock %}
+
+services:
+{% block services %}
+#  {{ extension_alias }}.example:
+#    class: %{{ extension_alias }}.example.class%
+{% endblock services %}
+{# @formatter:on #}

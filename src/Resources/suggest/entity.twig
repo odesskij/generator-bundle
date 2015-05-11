@@ -1,0 +1,19 @@
+{# @formatter:off #}
+[@{{ bundle }}\Resources\confing\doctrine.yml]
+parameters:
+  {{ bundle_alias }}.repo.{{ entity_alias }}.class:
+    {{ namespace }}\Entity\{{ entityRepository }}
+
+services:
+  {{ bundle_alias }}.repo.{{ entity_alias }}:
+    class:            %{{ bundle_alias }}.repo.{{ entity_alias }}.class%
+    factory_service:  doctrine.orm.entity_manager
+    factory_method:   getRepository
+    arguments: [{{ bundle }}:{{ entity }}]
+{# @formatter:on #}
+
+{# @formatter:off #}
+[@{{ bundle }}\DependencyInjection\VendorGeneratorExtension::load]
+  ...
+  $loader->load('doctrine.yml');
+{# @formatter:on #}

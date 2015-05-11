@@ -1,0 +1,29 @@
+{
+  "name": "odesskij/generator-bundle",
+  "description": "Code generator for Symfony2",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Vladimir Odesskij",
+      "email": "odesskij1992@gmail.com"
+    }
+  ],
+  "keywords": [
+    "symfony"
+  ],
+  "require": {
+    "symfony/framework-bundle": ">=2.5.0 <3.0",
+    "symfony/process": ">=2.5.0 <3.0",
+    "symfony/finder": ">=2.5.0 <3.0",
+    "symfony/console": ">=2.5.0 <3.0",
+    "twig/twig": "2.0.*@dev"
+  },
+  "autoload": {
+    "psr-0": {
+      "Odesskij\\Bundle\\GeneratorBundle": "src/"
+    }
+  },
+  "minimum-stability": "stable"
+}

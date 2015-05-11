@@ -1,0 +1,13 @@
+{# @formatter:off #}
+[/app/config/routing.yml]
+  {{ extension_alias }}:
+  resource: @{{ bundle }}/Resources/config/routing.yml
+{# @formatter:on #}
+
+{# @formatter:off #}
+[AppKernel::registerBundles]
+    $bundles = array(
+        ...
+        new \{{ namespace }}\{{ bundle }}();
+      );
+{# @formatter:on #}

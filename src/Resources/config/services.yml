@@ -1,0 +1,3 @@
+services:
+  odesskij_generator.validator:
+    class: Odesskij\Bundle\GeneratorBundle\Service\Validator
